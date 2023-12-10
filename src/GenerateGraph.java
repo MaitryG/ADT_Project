@@ -40,6 +40,10 @@ public class GenerateGraph{
                 }
             }
         }
+
+
+        Graph graph = new Graph(vertices,edges);
+
 //        for(Edge edge : edges){
 //            System.out.println("u: " + edge.u);
 //            System.out.println("v: " + edge.v);
@@ -61,16 +65,14 @@ public class GenerateGraph{
                 for (Edge edge : edges) {
                     if (edge.u == v) {
                         //writer.print("(" + edge.v.x + " " + edge.v.y + " Cap:" + edge.capacity + ") ");
-                        adjlist.append("(Node: ").append(edge.v.node).append(" Capacity: ").append(edge.capacity).append("), ");
+                        adjlist.append("Node: ").append(edge.v.node).append(" Capacity: ").append(edge.capacity).append(" ");
                     }
                 }
                 writer.println(v.node + "," + v.x + " " + v.y + "," + adjlist);
             }
-            writer.println();
             writer.println("Source: " + src.node);
             writer.println("Sink: " + sink.node);
         }
-        return ;
 
    }
 
@@ -109,10 +111,9 @@ public class GenerateGraph{
             return sink;
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
-        GenerateGraph g = new GenerateGraph();
-        g.generate_graph(5, 0.2, 2);
-
-    }
+//    public static void main(String[] args) throws FileNotFoundException {
+//        GenerateGraph g = new GenerateGraph();
+//        g.generate_graph(5, 0.3, 2);
+//    }
 
 }
